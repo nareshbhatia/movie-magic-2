@@ -3,6 +3,8 @@
 A sample application to demonstrate the use of basic UI components such as
 buttons, forms and lists.
 
+Live demo: https://movie-magic-2-movie-magic-nextjs.vercel.app/
+
 ### Home Page
 
 ![Home Page](assets/home.png)
