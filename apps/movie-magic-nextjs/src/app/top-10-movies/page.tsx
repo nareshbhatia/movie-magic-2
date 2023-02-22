@@ -1,21 +1,5 @@
-// TODO: Why does this page have to be a client component?
-//   Only <Header> needs client-side interactivity.
-//   <Top10MoviesList> should fetch data only on the
-//   server side, but it is also fetching data on the
-//   client side.
-'use client';
-
-import * as React from 'react';
-import { Header } from '~/components';
+import { Header } from '~/components/Header';
 import { Top10MoviesList } from './Top10MoviesList';
-
-interface Top10MoviesListClientProps {
-  children: React.ReactNode;
-}
-
-function Top10MoviesListClient({ children }: Top10MoviesListClientProps) {
-  return <>{children}</>;
-}
 
 export default function Top10MoviesPage() {
   return (
@@ -27,9 +11,8 @@ export default function Top10MoviesPage() {
         </h1>
 
         <div className="mt-6">
-          <Top10MoviesListClient>
-            <Top10MoviesList />
-          </Top10MoviesListClient>
+          {/* @ts-expect-error Server Component */}
+          <Top10MoviesList />
         </div>
       </div>
     </div>

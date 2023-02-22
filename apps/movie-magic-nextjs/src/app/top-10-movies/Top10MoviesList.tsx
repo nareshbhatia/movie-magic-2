@@ -1,4 +1,4 @@
-import * as React from 'react';
+import Image from 'next/image';
 
 function StarIcon(props: any) {
   return (
@@ -19,9 +19,7 @@ function StarIcon(props: any) {
 }
 
 async function getMovies() {
-  // TODO: can't do this because this code can also run client side
-  // const API_URL = process.env.API_URL;
-  const API_URL = 'https://movie-magic-api.herokuapp.com';
+  const API_URL = process.env.API_URL;
   console.log('----> API_URL', API_URL);
   const resMovies = await fetch(`${API_URL}/top-10-movies`);
   // returns a promise that resolves to movies in JSON format
@@ -36,11 +34,12 @@ export async function Top10MoviesList() {
         <li key={movie.id}>
           <div className="border border-default rounded shadow-md h-40 flex">
             <div className="flex-none w-32 relative">
-              <img
+              <Image
                 src={movie.photoUrl}
                 alt={movie.name}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                fill={true}
+                sizes="256px"
+                className="object-cover"
               />
             </div>
             <div className="flex-auto p-4">

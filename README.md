@@ -15,6 +15,11 @@ buttons, forms and lists.
 
 ![Top 10 Movies](assets/top-10-movies.png)
 
+Here's the component hierarchy for the "Top 10 Movies" page. Note how the client
+and server components are interleaved.
+
+![Component Hierarchy](assets/top-10-movies-component-hierarchy.png)
+
 ## Building Movie Magic 2
 
 ### Development Build

@@ -1,9 +1,4 @@
-// TODO: Why does this page have to be client-side?
-//   Only SignInContainer needs client-side interactivity.
-'use client';
-
-import * as React from 'react';
-import { Header, SignInContainer } from '~/components';
+import { SignInContainer } from '~/components/SignIn';
 
 export default function SignIn() {
   return (
