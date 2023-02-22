@@ -1,0 +1,46 @@
+{
+  "name": "movie-magic-2",
+  "description": "",
+  "version": "0.0.1",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "configs/*",
+    "packages/*",
+    "plugins/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "graph": "turbo run build --graph",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rimraf node_modules",
+    "prepare": "husky install",
+    "format": "prettier --write \"**/README.md\" \"**/src/**/*.{js,jsx,ts,tsx,json}\""
+  },
+  "devDependencies": {
+    "@code-shaper/nextjs": "latest",
+    "@code-shaper/plugin": "latest",
+    "@code-shaper/react": "latest",
+    "@code-shaper/shaper-utils": "latest",
+    "@code-shaper/typescript": "latest",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.1.2",
+    "turbo": "latest"
+  },
+  "overrides": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": "prettier --write"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "npm@8.4.0"
+}
