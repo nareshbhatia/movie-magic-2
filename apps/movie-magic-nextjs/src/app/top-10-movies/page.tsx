@@ -1,5 +1,8 @@
-// TODO: Why does this page have to be client-side?
-//   Only SignInContainer needs client-side interactivity.
+// TODO: Why does this page have to be a client component?
+//   Only <Header> needs client-side interactivity.
+//   <Top10MoviesList> should fetch data only on the
+//   server side, but it is also fetching data on the
+//   client side.
 'use client';
 
 import * as React from 'react';
