@@ -28,8 +28,8 @@ async function getMovies() {
   return resMovies.json();
 }
 
-export function Top10MoviesList() {
-  const movies = React.use(getMovies());
+export async function Top10MoviesList() {
+  const movies = await getMovies();
   return (
     <ul className="flex-none space-y-4">
       {movies.map((movie: any) => (

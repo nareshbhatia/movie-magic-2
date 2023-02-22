@@ -30,7 +30,17 @@ npm run build
 npm run dev
 ```
 
-Open browser windows at http://localhost:3000/ to see app.
+Open a browser window at http://localhost:3000/ to see app.
+
+1. Click `Sign In` on the home page to sign in.
+2. Type in any email address and password on the sign-in page. The values don't
+   matter. They are not checked. Click on the `Sign in` button.
+3. You are redirected to the "Top 10 Movies" page. Click on the avatar in the
+   header and select "Sign out" from the drop-down menu. You will be signed out
+   and redirected to the home page.
+
+Note that you can bypass the login flow to see the "Top 10 Movies" page
+directly. Just point your browser to http://localhost:3000/top-10-movies.
 
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
 > will break the build. There should be only one `package-lock.json` file in the
