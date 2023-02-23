@@ -87,6 +87,10 @@ export function SignInContainer() {
         'https://images.unsplash.com/photo-1568585105565-e372998a195d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     };
     setAuthState({ ...authState, user });
+
+    // TODO: This is doing a server-side redirect in the Vercel deployment.
+    //   This results in auth state to be lost and top-10-movies page does
+    //   not know who the user is. Fix this.
     router.push('/top-10-movies');
   };
 
