@@ -14,6 +14,7 @@ module.exports = {
       'brand-hover': 'var(--color-bg-brand-hover)',
       secondary: 'var(--color-bg-secondary)',
       'secondary-hover': 'var(--color-bg-secondary-hover)',
+      surface: 'var(--color-bg-surface)',
       // TODO: Remove the following atomic colors
       white: 'rgba(var(--color-white))',
       black: 'rgba(var(--color-black))',
@@ -43,6 +44,7 @@ module.exports = {
       },
     },
     borderColor: {
+      transparent: 'transparent',
       default: 'var(--color-border-default)',
       focus: 'var(--color-border-focus)',
     },
