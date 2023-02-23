@@ -32,7 +32,7 @@ export async function Top10MoviesList() {
     <ul className="flex-none space-y-6">
       {movies.map((movie: any) => (
         <li key={movie.id}>
-          <div className="bg-surface border border-transparent rounded-xl h-40 flex">
+          <div className="bg-surface border border-transparent rounded-xl min-h-[160px] flex overflow-hidden">
             <div className="flex-none w-32 relative">
               <Image
                 src={movie.photoUrl}
