@@ -24,7 +24,7 @@ export function Header() {
   };
 
   return (
-    <div className="h-16 flex items-center px-4 border-b border-default">
+    <div className="h-16 flex items-center px-4">
       <h1 className="flex-1 text-3xl text-brand font-semibold">Movie Magic</h1>
 
       <ModeToggle />
@@ -48,7 +48,7 @@ export function Header() {
               <img
                 className="h-8 w-8 rounded-full"
                 src={user.photoUrl}
-                alt=""
+                alt="{user.name}"
               />
             </Menu.Button>
           </div>

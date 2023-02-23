@@ -98,7 +98,7 @@
     --color-bg-secondary: rgba(var(--color-white));
     --color-bg-secondary-hover: rgba(var(--color-primary-50));
 
-    --color-border-default: rgba(var(--color-neutral-300));
+    --color-border-default: rgba(var(--color-neutral-700));
     --color-border-focus: rgba(var(--color-primary-500));
 
     --color-stroke-default: rgba(var(--color-white));
