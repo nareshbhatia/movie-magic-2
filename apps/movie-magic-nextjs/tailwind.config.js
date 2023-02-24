@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -90,6 +88,7 @@ module.exports = {
       brand: 'var(--color-stroke-brand)',
     },
     extend: {
+      // define 'flex-grow-2' for sign-in page
       flexGrow: {
         2: 2,
       },
