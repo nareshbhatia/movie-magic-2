@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import { useAuthStateContext } from '~/contexts';
 import { Credentials, User } from '~/models';
 import { Button } from '../Button';
-import { TextField } from '../Form';
+import { TextField } from '../Form/TextField';
 
 // TODO: fix ts-ignore
 // @ts-ignore
