@@ -43,18 +43,20 @@ export async function Top10MoviesList() {
               />
             </div>
             <div className="flex-auto p-4">
-              <div className="flex flex-wrap">
-                <h1 className="flex-auto text-lg font-semibold">
+              <div className="flex">
+                <h1 className="flex-auto text-base leading-5 font-semibold">
                   {movie.name}
                 </h1>
-                <div className="flex text-lg font-semibold">
-                  <StarIcon className="h-6 w-6 stroke-default" />
+                <div className="ml-2 flex text-base leading-5 font-semibold">
+                  <StarIcon className="h-5 w-5 stroke-default" />
                   &nbsp;
                   {movie.rating.toFixed(1)}
                 </div>
-                <div className="w-full flex-none font-medium">{movie.year}</div>
-                <div className="mt-3 text-sm">{movie.logline}</div>
               </div>
+              <div className="w-full flex-none text-sm font-medium">
+                {movie.year}
+              </div>
+              <div className="mt-2 text-sm">{movie.logline}</div>
             </div>
           </div>
         </li>
