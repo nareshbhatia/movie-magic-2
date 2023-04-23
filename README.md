@@ -52,3 +52,18 @@ directly. Just point your browser to http://localhost:3000/top-10-movies.
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
 > will break the build. There should be only one `package-lock.json` file in the
 > entire repo (at the root).
+
+### Static Build
+
+This repo contains a slightly modified version of movie-magic-2 that is rendered
+completely client-side (CSR). This is done by changing the `Top10MoviesList`
+component to be a client component. This version of the app is located at
+`apps/movie-magic-nextjs-static-build`. It can be deployed and hosted on any web
+server that can serve HTML/CSS/JS static assets. After running the build
+instructions above, look for a directory called `out` under this modified app.
+Run a static server in this directory (e.g. `serve` ) and now you will be able
+to run the app through the browser.
+
+For details see
+[Static Export](https://beta.nextjs.org/docs/configuring/static-export) in
+Next.js docs.
