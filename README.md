@@ -56,14 +56,24 @@ directly. Just point your browser to http://localhost:3000/top-10-movies.
 ### Static Build
 
 This repo contains a slightly modified version of movie-magic-2 that is rendered
-completely client-side (CSR). This is done by changing the `Top10MoviesList`
-component to be a client component. This version of the app is located at
-`apps/movie-magic-nextjs-static-build`. It can be deployed and hosted on any web
-server that can serve HTML/CSS/JS static assets. After running the build
-instructions above, look for a directory called `out` under this modified app.
-Run a static server in this directory (e.g. `serve` ) and now you will be able
-to run the app through the browser.
+completely client-side (CSR). This version is located at
+`apps/movie-magic-nextjs-static-build`. Here are the modifications:
 
-For details see
-[Static Export](https://beta.nextjs.org/docs/configuring/static-export) in
-Next.js docs.
+1. Changed environment variable `API_URL` to `NEXT_PUBLIC_API_URL` so that it
+   can be accessed from client-side.
+2. Changed `Top10MoviesList` to be a client component.
+3. Removed async function `getMovies()` (async/await can't be used in client
+   components)
+4. Replace with `useMovies` hook which runs on client side.
+4. Changed `next.config.js` to create a static build (`output: 'export'`). This
+   generates a static build in the `out` directory. For details see
+   [Next.js docs](https://beta.nextjs.org/docs/configuring/static-export).
+
+This version can be deployed and hosted on any web server that can serve
+HTML/CSS/JS static assets. Here's how to build & deploy:
+
+```shell
+npm ci
+npm run build
+npx serve@latest apps/movie-magic-nextjs-static-build/out
+```

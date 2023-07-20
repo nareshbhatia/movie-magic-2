@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import * as React from 'react';
 
 function StarIcon(props: any) {
   return (
@@ -20,16 +21,62 @@ function StarIcon(props: any) {
   );
 }
 
-async function getMovies() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  console.log('----> API_URL', API_URL);
-  const resMovies = await fetch(`${API_URL}/top-10-movies`);
-  // returns a promise that resolves to movies in JSON format
-  return resMovies.json();
+interface Movie {
+  id: string;
+  name: string;
+  year: number;
+  rating: number;
 }
 
-export async function Top10MoviesList() {
-  const movies = await getMovies();
+function useMovies() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  console.log('----> apiUrl', apiUrl);
+  const failMessage = 'Failed to get movies';
+
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
+  const [error, setError] = React.useState<Error>();
+  const [movies, setMovies] = React.useState<Movie[]>([]);
+
+  React.useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`${apiUrl}/top-10-movies`);
+
+        if (!response.ok) {
+          setIsError(true);
+          setError(new Error(`${failMessage} (${response.status})`));
+          setIsLoading(false);
+          return;
+        }
+
+        const movies: Movie[] = await response.json();
+        setMovies(movies);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+        setError(error instanceof Error ? error : new Error(failMessage));
+        setIsLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, [apiUrl]);
+  return { isLoading, isError, error, movies };
+}
+
+export function Top10MoviesList() {
+  const { isLoading, isError, error, movies } = useMovies();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <h1 className="mb-2 text-2xl font-semibold">{error?.message}</h1>;
+  }
+
   return (
     <ul className="flex-none space-y-6">
       {movies.map((movie: any) => (

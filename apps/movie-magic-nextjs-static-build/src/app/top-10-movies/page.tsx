@@ -11,7 +11,6 @@ export default function Top10MoviesPage() {
         </h1>
 
         <div className="mt-6">
-          {/* @ts-expect-error Server Component */}
           <Top10MoviesList />
         </div>
       </div>
