@@ -23,9 +23,11 @@ async function getMovies() {
   console.log('----> API_URL', API_URL);
   // cache: "no-store" forces Next.js to fetch data on every request without looking
   // in the cache. Without this option, the data would be fetched only once - at build
-  // time. At run time, the server will not be even be called! Note that this may be the
+  // time. At run time, the server will not even be called! Note that this may be the
   // desired behavior sometimes, but in this case I opted to get data during each fetch.
-  const resMovies = await fetch(`${API_URL}/top-10-movies`, { cache: "no-store" });
+  const resMovies = await fetch(`${API_URL}/top-10-movies`, {
+    cache: 'no-store',
+  });
   // returns a promise that resolves to movies in JSON format
   return resMovies.json();
 }
